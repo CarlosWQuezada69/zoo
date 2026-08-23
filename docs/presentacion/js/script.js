@@ -49,9 +49,17 @@ document.querySelectorAll("model-viewer").forEach((visor) => {
   }
 });
 
+
+const botones3d = document.querySelectorAll(".animal-card .btn-3d, .cards .card .btn-3d");
+botones3d.forEach((boton) => {
+  const cuerpo = boton.closest("article")?.querySelector(".card-body, .animal-body");
+  if (cuerpo) cuerpo.appendChild(boton);
+});
+
 document.querySelectorAll(".btn-3d").forEach((boton) => {
   boton.addEventListener("click", () => {
-    const medio = boton.closest(".card-media");
+    const medio = boton.closest("article")?.querySelector(".card-media");
+    if (!medio) return;
     const visor = medio.querySelector("model-viewer");
     if (!visor) return;
     const activo = medio.classList.toggle("media-3d");

@@ -1008,38 +1008,41 @@ a {
 }
 
 .btn-3d {
-  position: absolute;
-  left: 12px;
-  bottom: 12px;
-  z-index: 3;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  background: rgba(16, 29, 13, 0.82);
-  color: var(--blanco);
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 7px 14px;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--acento, var(--verde-700));
   font-family: inherit;
   font-weight: 700;
   font-size: 0.78rem;
   letter-spacing: 0.02em;
-  padding: 7px 13px;
-  border-radius: 999px;
   cursor: pointer;
-  touch-action: manipulation;
-  -webkit-user-select: none;
-  user-select: none;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  transition: background 0.25s ease, transform 0.25s ease, color 0.25s ease;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+/* Sin JS el boton no se reubica: conserva su estilo flotante sobre la foto */
+html:not(.js) .btn-3d {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 3;
+  background: rgba(16, 29, 13, 0.82);
+  color: var(--blanco);
+  border-color: rgba(255, 255, 255, 0.28);
 }
 
 .btn-3d:hover,
 .btn-3d:focus-visible {
-  background: var(--verde-700);
   transform: translateY(-2px);
 }
 
 .btn-3d[aria-pressed="true"] {
-  background: var(--ambar);
-  color: var(--verde-950);
+  background: var(--acento, var(--verde-700));
   border-color: transparent;
+  color: var(--blanco);
 }
 
 .card-media .aviso-3d {
