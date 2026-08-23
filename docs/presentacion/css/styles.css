@@ -1008,6 +1008,7 @@ a {
 }
 
 .btn-3d {
+  margin-left: auto;
   padding: 7px 14px;
   border: 1.5px solid currentColor;
   border-radius: 999px;
