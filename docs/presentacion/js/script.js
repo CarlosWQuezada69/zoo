@@ -101,3 +101,18 @@ if (tarjetas.length > 0) {
     temporizador = setTimeout(igualaTarjetas, 120);
   });
 }
+
+
+const fotosTarjeta = document.querySelectorAll(".card-media > img");
+
+fotosTarjeta.forEach((img) => {
+  const ajustar = () => {
+    const marco = img.parentElement;
+    if (!marco || img.clientWidth === 0 || !img.naturalWidth) return;
+    if (img.naturalWidth / img.naturalHeight < (img.clientWidth / img.clientHeight) * 0.95) {
+      marco.classList.add("foto-vertical");
+      marco.style.backgroundImage = 'url("' + img.currentSrc + '")';
+    }
+  };
+  img.complete ? ajustar() : img.addEventListener("load", ajustar);
+});

@@ -409,7 +409,7 @@ a {
 }
 
 .animal-card .card-media {
-  min-height: 230px;
+  height: 230px;
 }
 
 .animal-card .card-media > img {
@@ -445,6 +445,10 @@ a {
   font-size: 0.95rem;
   line-height: 1.6;
   max-width: 60ch;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .volver {
@@ -859,8 +863,17 @@ a {
     order: 0;
   }
 
+  .animal-card .card-media {
+    height: 200px;
+  }
+
   .animal-card .card-media > img {
-    max-height: 230px;
+    height: 100%;
+    max-height: none;
+  }
+
+  .animal-body p {
+    -webkit-line-clamp: 3;
   }
 
   .event-card {
@@ -1086,4 +1099,23 @@ a {
 
 .volver .btn + .btn {
   margin-left: 10px;
+}
+
+.card-media.foto-vertical {
+  background-size: cover;
+  background-position: center;
+}
+
+.card-media.foto-vertical::before {
+  content: "";
+  position: absolute;
+  inset: -24px;
+  background: inherit;
+  filter: blur(18px);
+}
+
+.card-media.foto-vertical > img {
+  position: relative;
+  z-index: 1;
+  object-fit: contain;
 }
