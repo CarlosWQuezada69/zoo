@@ -25,6 +25,17 @@ if (header) {
   actualizar();
 }
 
+document.querySelectorAll("model-viewer").forEach((visor) => {
+  visor.addEventListener("error", () => {
+    if (visor.parentElement.querySelector(".aviso-3d")) return;
+    const aviso = document.createElement("p");
+    aviso.className = "aviso-3d";
+    aviso.textContent =
+      "No se pudo cargar el modelo 3D. Actualiza tu navegador, abre el sitio por su dirección web (no desde un archivo local) o prueba en otro navegador.";
+    visor.after(aviso);
+  });
+});
+
 const revelables = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window && revelables.length > 0) {

@@ -653,6 +653,15 @@ a {
   width: 100%;
   height: min(70vw, 420px);
   display: block;
+  background: radial-gradient(circle at 50% 30%, #2c5530, #101d0d);
+}
+
+.aviso-3d {
+  margin: 0;
+  padding: 14px 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--ambar);
 }
 
 .modelo-pie {
