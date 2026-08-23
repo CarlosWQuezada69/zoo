@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Prototipo · Nueva ficha de especie</title>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
+  <style>
+    /* ============================================================
+       TOKENS DEL SISTEMA — única fuente de verdad del rediseño
+       ============================================================ */
+    :root {
+      --tinta:   #20231f;
+      --tinta-2: #555b52;
+      --tinta-3: #8d938a;
+      --papel:   #ffffff;
+      --lienzo:  #f5f5f2;
+      --linea:   rgba(32, 35, 31, 0.16);
+      --acento:  #b04327;
+
+      --radio-tarjeta: 12px;
+      --ancho-max: 1060px;
+      --corte: 56px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--lienzo);
+      color: var(--tinta);
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      font-weight: 400;
+      padding: clamp(24px, 5vw, 64px) clamp(16px, 4vw, 48px);
+    }
+
+    .nota-prototipo {
+      max-width: var(--ancho-max);
+      margin: 0 auto clamp(20px, 3vw, 36px);
+      font-size: 0.85rem;
+      color: var(--tinta-3);
+    }
+
+    /* ============================================================
+       FICHA
+       ============================================================ */
+    .ficha {
+      --pad-y: clamp(22px, 3.4vw, 44px);
+
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 34fr) minmax(0, 66fr);
+      max-width: var(--ancho-max);
+      margin: 0 auto;
+      background: var(--papel);
+      border-radius: var(--radio-tarjeta);
+      overflow: hidden;
+    }
+
+    /* ---- Media: columna angosta con corte diagonal al pie ---- */
+    .ficha-media {
+      position: relative;
+      min-height: clamp(240px, 30vw, 380px);
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - var(--corte)),
+        0 100%
+      );
+    }
+
+    .ficha-media img,
+    .ficha-media model-viewer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      --poster-color: transparent;
+    }
+
+    .ficha-media model-viewer { display: none; }
+
+    .ficha.media-activa .ficha-media img { visibility: hidden; }
+    .ficha.media-activa .ficha-media model-viewer { display: block; }
+
+    /* ---- Contenido: aire asimétrico, lectura estrecha ---- */
+    .ficha-cuerpo {
+      padding: var(--pad-y);
+      padding-left: calc(var(--pad-y) + 18px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ficha-cuerpo header {
+      padding-right: clamp(24px, 8vw, 130px); /* aire a la derecha del título */
+    }
+
+    .ficha-nombre {
+      font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+    }
+
+    .ficha-ciencia {
+      margin-top: 4px;
+      font-style: italic;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--tinta-3);
+    }
+
+    .ficha-descripcion {
+      margin-top: clamp(14px, 2vw, 22px);
+      max-width: 34ch;              /* 30–35 caracteres por línea */
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--tinta-2);
+    }
+
+    /* ---- Metadatos: dos juntos a la izquierda, estado suelto a la derecha ---- */
+    .ficha-meta {
+      margin-top: auto;             /* empuja al pie: aire central generoso */
+      padding-top: clamp(14px, 2vw, 20px);
+      border-top: 0.5px solid var(--linea);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .ficha-datos {
+      display: flex;
+      gap: clamp(18px, 3vw, 42px);  /* agrupación desigual, no columnas iguales */
+    }
+
+    .ficha-dato dt {
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--tinta-3);
+      font-weight: 400;
+    }
+
+    .ficha-dato dd {
+      margin-top: 2px;
+      font-size: 0.86rem;
+      color: var(--tinta-2);
+      max-width: 22ch;
+    }
+
+    /* ÚNICO uso permitido del acento en toda la tarjeta */
+    .ficha-estado {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--acento);
+      white-space: nowrap;
+    }
+
+    .ficha-estado::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    /* ---- Acciones discretas: texto + flecha, sin píldoras ---- */
+    .ficha-acciones {
+      margin-top: clamp(12px, 1.6vw, 16px);
+      display: flex;
+      gap: clamp(18px, 3vw, 36px);
+    }
+
+    .ficha-accion {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--tinta-2);
+      text-decoration: none;
+      transition: color 0.2s ease, gap 0.2s ease;
+    }
+
+    .ficha-accion:hover,
+    .ficha-accion:focus-visible {
+      color: var(--tinta);
+      gap: 10px;
+    }
+
+    .ficha-accion svg {
+      width: 13px;
+      height: 13px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    /* ============================================================
+       MÓVIL: apilado con corte diagonal inferior
+       ============================================================ */
+    @media (max-width: 760px) {
+      .ficha { grid-template-columns: 1fr; }
+      .ficha-media {
+        min-height: 210px;
+        clip-path: polygon(
+          0 0,
+          100% 0,
+          100% calc(100% - var(--corte)),
+          0 100%
+        );
+        margin-bottom: calc(-1 * var(--corte));
+        position: relative;
+        z-index: 1;
+      }
+      .ficha-cuerpo { padding-left: var(--pad-y); padding-top: calc(var(--pad-y) + 26px); }
+      .ficha-meta { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<p class="nota-prototipo">Prototipo de validación — ficha nueva aplicando sobriedad, asimetría 34/66 y acento único. Solo esta página usa el nuevo sistema; el catálogo aún no ha sido tocado.</p>
+
+<article class="ficha" id="ficha-demo">
+  <div class="ficha-media">
+    <img src="infraestructura/img/solenodonte.jpg" alt="Solenodonte husmeando el suelo del bosque">
+    <model-viewer src="infraestructura/modelos/solenodonte.glb"
+                  alt="Modelo 3D interactivo de un solenodonte"
+                  ar ar-modes="webxr scene-viewer quick-look"
+                  camera-controls auto-rotate interaction-prompt="auto"
+                  shadow-intensity="1"></model-viewer>
+  </div>
+
+  <div class="ficha-cuerpo">
+    <header>
+      <h1 class="ficha-nombre">Solenodonte</h1>
+      <p class="ficha-ciencia">Solenodon paradoxus · endémico de La Española</p>
+    </header>
+
+    <p class="ficha-descripcion">
+      Fósil viviente cuyo linaje sobrevive desde tiempos de los dinosaurios.
+      Es uno de los pocos mamíferos venenosos del mundo: inocula saliva tóxica
+      por un incisivo surcado mientras hurga de noche con su hocico flexible.
+    </p>
+
+    <dl class="ficha-meta">
+      <div class="ficha-datos">
+        <div class="ficha-dato">
+          <dt>Hábitat</dt>
+          <dd>Bosques de La Española</dd>
+        </div>
+        <div class="ficha-dato">
+          <dt>Dieta</dt>
+          <dd>Insectos, lombrices y vertebrados pequeños</dd>
+        </div>
+      </div>
+      <div class="ficha-estado">En peligro</div>
+    </dl>
+
+    <div class="ficha-acciones">
+      <button class="ficha-accion" type="button" id="toggle-3d" aria-pressed="false">
+        <svg viewBox="0 0 24 24"><path d="M12 2 21 7v10l-9 5-9-5V7z M12 12 21 7 M12 12v10 M12 12 3 7"/></svg>
+        <span>Ver en 3D</span>
+      </button>
+      <a class="ficha-accion" href="mamiferos.html">
+        <span>Especie anterior</span>
+        <svg viewBox="0 0 24 24"><path d="M19 12H5 M11 18l-6-6 6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</article>
+
+<script>
+  const ficha = document.getElementById("ficha-demo");
+  const boton = document.getElementById("toggle-3d");
+  const visor = ficha.querySelector("model-viewer");
+
+  boton.addEventListener("click", () => {
+    const activa = ficha.classList.toggle("media-activa");
+    boton.setAttribute("aria-pressed", String(activa));
+    boton.querySelector("span").textContent = activa ? "Ver foto" : "Ver en 3D";
+    if (activa && !visor.getAttribute("src")) {
+      visor.setAttribute("src", visor.dataset.src);
+    }
+  });
+</script>
+
+</body>
+</html>
