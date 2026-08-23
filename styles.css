@@ -31,6 +31,7 @@ body {
   line-height: 1.65;
   color: var(--texto);
   background-color: var(--crema);
+  -webkit-tap-highlight-color: rgba(232, 163, 61, 0.25);
 }
 
 img {
@@ -122,7 +123,8 @@ a {
   background: transparent;
   border: 0;
   cursor: pointer;
-  padding: 8px;
+  padding: 14px;
+  margin-right: -14px;
 }
 
 .nav-toggle .bar {
@@ -632,6 +634,49 @@ a {
   color: var(--ambar);
 }
 
+/* ===== Modelos 3D ===== */
+
+.modelos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 26px;
+}
+
+.modelo-frame {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radio);
+  overflow: hidden;
+}
+
+.modelo-frame model-viewer {
+  width: 100%;
+  height: min(70vw, 420px);
+  display: block;
+}
+
+.modelo-pie {
+  padding: 16px 20px;
+  text-align: center;
+}
+
+.modelo-pie h3 {
+  color: var(--blanco);
+  font-size: 1.05rem;
+}
+
+.modelo-pie p {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.creditos-modelo {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
 /* ===== Artículo de texto ===== */
 
 .prose {
@@ -734,6 +779,19 @@ a {
 /* ===== Responsivo ===== */
 
 @media (max-width: 860px) {
+  .hero {
+    min-height: 72vh;
+    padding: 72px 0 56px;
+  }
+
+  .page-hero {
+    padding: 64px 0 48px;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
   .nav-toggle {
     display: flex;
   }

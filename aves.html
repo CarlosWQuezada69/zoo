@@ -19,6 +19,7 @@
   <meta name="twitter:description" content="Las aves del Parque Zoológico Nacional: cotorra frente azul, pelícano marrón y lechuza de sabana.">
   <meta name="twitter:image" content="https://carloswquezada69.github.io/zoo/icon1.jpg">
   <link rel="stylesheet" href="styles.css">
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -87,6 +88,30 @@
       </div>
 
       <p class="volver"><a class="btn btn-primary" href="index.html">Volver al inicio</a></p>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Explora en 3D</h2>
+        <p class="section-intro">Gira los modelos con el dedo o el mouse. En tu celular, tócalos para colocarlos en tu espacio con realidad aumentada.</p>
+        <div class="modelos-grid">
+          <div class="modelo-frame reveal">
+            <model-viewer src="modelos/loro.glb" alt="Modelo 3D interactivo de un loro" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1" loading="lazy"></model-viewer>
+            <div class="modelo-pie">
+              <h3>Loro</h3>
+              <p>Animado y listo para volar contigo</p>
+            </div>
+          </div>
+          <div class="modelo-frame reveal">
+            <model-viewer src="modelos/flamenco.glb" alt="Modelo 3D interactivo de un flamenco" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1" loading="lazy"></model-viewer>
+            <div class="modelo-pie">
+              <h3>Flamenco del Caribe</h3>
+              <p>El ícono de nuestras costas</p>
+            </div>
+          </div>
+        </div>
+        <p class="creditos-modelo">Modelos "Parrot" y "Flamingo" por mirada.com, vía los ejemplos de three.js</p>
+      </div>
     </section>
   </main>
 

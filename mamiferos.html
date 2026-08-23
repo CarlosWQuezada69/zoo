@@ -19,6 +19,7 @@
   <meta name="twitter:description" content="Conoce los mamíferos del Parque Zoológico Nacional: chimpancés, leones africanos y tigres de Bengala.">
   <meta name="twitter:image" content="https://carloswquezada69.github.io/zoo/icon1.jpg">
   <link rel="stylesheet" href="styles.css">
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -88,6 +89,21 @@
       </div>
 
       <p class="volver"><a class="btn btn-primary" href="index.html">Volver al inicio</a></p>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Explora en 3D</h2>
+        <p class="section-intro">Gira el modelo con el dedo o el mouse. En tu celular, tócalo para colocarlo en tu espacio con realidad aumentada.</p>
+        <div class="modelo-frame reveal">
+          <model-viewer src="modelos/zorro.glb" alt="Modelo 3D interactivo de un zorro" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1" loading="lazy"></model-viewer>
+          <div class="modelo-pie">
+            <h3>Zorro</h3>
+            <p>Nuestro nuevo residente más curioso</p>
+          </div>
+        </div>
+        <p class="creditos-modelo">Modelo "Fox" por PixelMannen y tomkranis (CC0) · Khronos glTF Sample Models</p>
+      </div>
     </section>
   </main>
 
