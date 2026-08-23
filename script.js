@@ -26,14 +26,25 @@ if (header) {
 }
 
 document.querySelectorAll("model-viewer").forEach((visor) => {
-  visor.addEventListener("error", () => {
+  const avisar = (texto) => {
     if (visor.parentElement.querySelector(".aviso-3d")) return;
-    const aviso = document.createElement("p");
-    aviso.className = "aviso-3d";
-    aviso.textContent =
-      "No se pudo cargar el modelo 3D. Actualiza tu navegador, abre el sitio por su dirección web (no desde un archivo local) o prueba en otro navegador.";
-    visor.after(aviso);
-  });
+    const p = document.createElement("p");
+    p.className = "aviso-3d";
+    p.textContent = texto;
+    visor.after(p);
+  };
+
+  if (location.protocol === "file:") {
+    avisar("Estás abriendo una copia local del archivo. Abre el sitio publicado: https://carloswquezada69.github.io/zoo/");
+  } else {
+    const prueba = document.createElement("canvas");
+    if (!(prueba.getContext("webgl2") || prueba.getContext("webgl"))) {
+      avisar("Tu navegador tiene WebGL desactivado. Activa la aceleración por hardware en la configuración y recarga.");
+    }
+    visor.addEventListener("error", () => {
+      avisar("No se pudo cargar el modelo 3D. Actualiza tu navegador o prueba en otro (Chrome, Edge o Firefox al día).");
+    });
+  }
 });
 
 const revelables = document.querySelectorAll(".reveal");
