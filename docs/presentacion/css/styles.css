@@ -1077,3 +1077,13 @@ a {
 .video-fallback a {
   font-weight: 600;
 }
+
+.sub-titulo {
+  margin: 26px 0 10px;
+  font-size: 1.02rem;
+  color: var(--verde-700);
+}
+
+.volver .btn + .btn {
+  margin-left: 10px;
+}
