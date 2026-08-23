@@ -50,7 +50,7 @@ document.querySelectorAll("model-viewer").forEach((visor) => {
 });
 
 
-document.querySelectorAll(".animal-card, .cards .card").forEach((articulo) => {
+document.querySelectorAll(".animal-card, .cards .card, .tg").forEach((articulo) => {
   const cuerpo = articulo.querySelector(".card-body, .animal-body");
   if (!cuerpo || cuerpo.querySelector(".card-actions")) return;
   const fila = document.createElement("div");
