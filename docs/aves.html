@@ -14,12 +14,12 @@
   <meta property="og:title" content="Aves · ZOODOM">
   <meta property="og:description" content="Las aves del Parque Zoológico Nacional: cotorra frente azul, pelícano marrón y lechuza de sabana.">
   <meta property="og:url" content="https://carloswquezada69.github.io/zoo/aves.html">
-  <meta property="og:image" content="https://carloswquezada69.github.io/zoo/img/sabana.jpg">
+  <meta property="og:image" content="https://carloswquezada69.github.io/zoo/infraestructura/img/sabana.jpg">
   <meta property="og:locale" content="es_DO">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Aves · ZOODOM">
   <meta name="twitter:description" content="Las aves del Parque Zoológico Nacional: cotorra frente azul, pelícano marrón y lechuza de sabana.">
-  <meta name="twitter:image" content="https://carloswquezada69.github.io/zoo/img/sabana.jpg">
+  <meta name="twitter:image" content="https://carloswquezada69.github.io/zoo/infraestructura/img/sabana.jpg">
     <link rel="stylesheet" href="presentacion/css/styles.css">
   <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
   <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
@@ -39,6 +39,7 @@
         <li><a href="mamiferos.html">Mamíferos</a></li>
         <li><a href="reptiles.html">Reptiles</a></li>
         <li><a href="aves.html" class="active">Aves</a></li>
+        <li><a href="acuario.html">Vida Marina</a></li>
         <li><a href="historia.html">Historia</a></li>
         <li><a href="horario.html">Horario</a></li>
         <li><a href="tarifas.html">Tarifas</a></li>
@@ -112,6 +113,43 @@
             <ul class="card-datos"><li><span>Hábitat</span>Lagunas costeras y salinas</li><li><span>Dieta</span>Crustáceos y algas</li><li><span>Conservación</span>Preocupación menor</li></ul>
           </div>
         </article>
+        <article class="animal-card reveal">
+          <div class="card-media">
+            <img src="infraestructura/img/cigua-palmera.jpg" alt="Cigua palmera junto a una palma cana" loading="lazy" decoding="async">
+          </div>
+          <div class="animal-body">
+            <p class="sci-name">Dulus dominicus</p>
+            <h2>Cigua Palmera</h2>
+            <p>Nuestra ave nacional: endémica de La Española y protagonista del escudo dominicano. Construye enormes nidos comunales de ramitas en las palmas cana, donde duermen varias parejas juntas, y acompaña al ganado cazando insectos espantados.</p>
+            <ul class="card-datos"><li><span>Hábitat</span>Palmares y sabanas de La Española</li><li><span>Dieta</span>Frutos de palma e insectos</li><li><span>Conservación</span>Preocupación menor</li></ul>
+          </div>
+        </article>
+
+        <article class="animal-card reverse reveal">
+          <div class="card-media">
+            <img src="infraestructura/img/perico.jpg" alt="Perico de la Hispaniola posado en una rama" loading="lazy" decoding="async">
+          </div>
+          <div class="animal-body">
+            <p class="sci-name">Psittacara chloropterus</p>
+            <h2>Perico de la Hispaniola</h2>
+            <p>Loro verde endémico de la isla, de collar rojo en la garganta y llamadas estridentes que delatan a las bandadas que cruzan los valles al amanecer. Anida en huecos de palmas y árboles viejos, cada vez más escasos.</p>
+            <ul class="card-datos"><li><span>Hábitat</span>Bosques y montañas de La Española</li><li><span>Dieta</span>Semillas, frutas y flores</li><li><span>Conservación</span>Vulnerable</li></ul>
+          </div>
+        </article>
+
+        <article class="animal-card reveal">
+          <div class="card-media">
+            <img src="infraestructura/img/cuervo.jpg" alt="Cuervo de la Española sobre un pino" loading="lazy" decoding="async">
+            <model-viewer data-src="infraestructura/modelos/cuervo.glb" alt="Modelo 3D interactivo de un cuervo" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1"></model-viewer>
+            <button class="btn-3d" type="button" aria-pressed="false">Ver en 3D</button>
+          </div>
+          <div class="animal-body">
+            <p class="sci-name">Corvus palmarum</p>
+            <h2>Cuervo de la Española</h2>
+            <p>Ave negra brillante endémica de La Española, emparentada con los cuervos más inteligentes del mundo: usa herramientas y resuelve rompecabezas. Frecuenta pinares y palmares montanos donde busca frutas, insectos y carroña.</p>
+            <ul class="card-datos"><li><span>Hábitat</span>Pinares y palmares montanos</li><li><span>Dieta</span>Frutas, insectos y carroña</li><li><span>Conservación</span>Casi amenazada</li></ul>
+          </div>
+        </article>
       </div>
 
       <h2 class="section-title">Las aves más bellas del mundo</h2>
@@ -122,7 +160,7 @@
         </div>
       </div>
 
-      <p class="creditos-modelo">Modelos 3D: "Owl" y "Brown pelican" por Poly by Google, "Parrot" por mirada.com (three.js) y "Flamingo" por mirada.com (three.js)</p>
+      <p class="creditos-modelo">Modelos 3D: "Owl", "Brown pelican" y "Crow" por Poly by Google, "Parrot" y "Flamingo" por mirada.com (three.js)</p>
 
       <p class="volver"><a class="btn btn-primary" href="index.html">Volver al inicio</a></p>
     </section>
@@ -141,6 +179,7 @@
           <li><a href="mamiferos.html">Mamíferos</a></li>
           <li><a href="reptiles.html">Reptiles</a></li>
           <li><a href="aves.html">Aves</a></li>
+        <li><a href="acuario.html">Vida Marina</a></li>
         </ul>
       </div>
       <div>

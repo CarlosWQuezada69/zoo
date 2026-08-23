@@ -11,3 +11,21 @@ Modelos 3D:
 - vaca.glb: "Cow" por Quaternius (CC0 1.0), via Poly Pizza
 - perro.glb: "Dog" por Quaternius (CC0 1.0), via Poly Pizza
 - piton-real.glb: "Cobra" por Poly by Google (CC-BY 3.0), via Poly Pizza
+cuervo.glb: "Crow" por Poly by Google (CC-BY 3.0)
+ballena.glb: "Whale" por Quaternius (CC0 1.0)
+hipopotamo.glb: "Hippo" por jeremy (CC-BY 3.0)
+elefante.glb: "Elephant" por Poly by Google (CC-BY 3.0)
+bisonte.glb: "Bison" por Poly by Google (CC-BY 3.0)
+jirafa.glb: "Giraffe" por Poly by Google (CC-BY 3.0)
+- pinguino.glb: "Penguin Character" por Polygonal Mind (CC0 1.0), via Poly Pizza
+- pez-payaso.glb: "Clownfish" por Quaternius (CC0 1.0), via Poly Pizza
+- cirujano-azul.glb: "Tang" por Quaternius (CC0 1.0), via Poly Pizza
+- pez-leon.glb: "Lionfish" por Quaternius (CC0 1.0), via Poly Pizza
+- tortuga-carey.glb: "Turtle Character" por Polygonal Mind (CC0 1.0), via Poly Pizza
+- erizo-diadema.glb: "Sea Urchin" por Quaternius (CC0 1.0), via Poly Pizza
+- mariposa-cuatro-ojos.glb: "Butterfly Fish" por Quaternius (CC0 1.0), via Poly Pizza
+- pez-globo.glb: "Puffer" por Quaternius (CC0 1.0), via Poly Pizza
+- estrella-mar.glb: "Star" por Quaternius (CC0 1.0), via Poly Pizza
+- langosta-espinosa.glb: "Lobster" por Poly by Google (CC-BY 3.0), via Poly Pizza
+- pulpo.glb: "Octopus" por Poly by Google (CC-BY 3.0), via Poly Pizza
+- raya.glb: "Manta ray" por Quaternius (CC0 1.0), via Poly Pizza
