@@ -180,7 +180,7 @@ a {
   text-align: center;
   background:
     linear-gradient(180deg, rgba(16, 29, 13, 0.72), rgba(16, 29, 13, 0.45) 45%, rgba(16, 29, 13, 0.85)),
-    url(img/sabana.jpg) center / cover no-repeat;
+    url(../../infraestructura/img/sabana.jpg) center / cover no-repeat;
   color: var(--blanco);
   padding: 120px 0 90px;
 }
@@ -210,7 +210,7 @@ a {
 .page-hero {
   background:
     linear-gradient(180deg, rgba(16, 29, 13, 0.78), rgba(31, 58, 22, 0.82)),
-    url(img/sabana.jpg) center 30% / cover no-repeat;
+    url(../../infraestructura/img/sabana.jpg) center 30% / cover no-repeat;
   color: var(--blanco);
   text-align: center;
   padding: 96px 0 72px;
