@@ -1672,3 +1672,10 @@ html:not(.js) .btn-3d::after { content: none; }
 .card-datos li.estado-inv::before { background: var(--color-neutral-400); }
 .card-datos li.estado-dd { color: var(--color-neutral-600); }
 .card-datos li.estado-dd::before { background: var(--color-neutral-400); }
+
+/* CTA de franjas mini-3d centrados en movil */
+@media (max-width: 860px) {
+  .mini-3d > div:first-child {
+    text-align: center;
+  }
+}
