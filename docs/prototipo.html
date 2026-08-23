@@ -4,292 +4,250 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Prototipo · Nueva ficha de especie</title>
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
+  <title>Prototipo · Sistema único de tarjetas</title>
   <style>
-    /* ============================================================
-       TOKENS DEL SISTEMA — única fuente de verdad del rediseño
-       ============================================================ */
+    /* ================================================================
+       SISTEMA DE DISEÑO ÚNICO ANIMONDE — definido UNA vez
+       ================================================================ */
     :root {
-      --tinta:   #20231f;
-      --tinta-2: #555b52;
-      --tinta-3: #8d938a;
-      --papel:   #ffffff;
-      --lienzo:  #f5f5f2;
-      --linea:   rgba(32, 35, 31, 0.16);
-      --acento:  #b04327;
+      /* Color primario: el verde institucional ya existente */
+      --color-primary: #1f3a16;
+      --color-primary-deep: #101d0d;
 
-      --radio-tarjeta: 12px;
-      --ancho-max: 1060px;
-      --corte: 56px;
+      /* Acento: UN elemento destacado por tarjeta (hora o CTA) */
+      --color-accent: #a8621a;        /* texto: contraste AA sobre blanco */
+      --color-accent-vivid: #e8a33d;  /* decorativo puntual */
+
+      /* Neutros */
+      --color-neutral-900: #20231f;
+      --color-neutral-600: #555b52;
+      --color-neutral-400: #8d938a;
+      --color-neutral-200: rgba(32, 35, 31, 0.16);
+      --color-surface: #ffffff;
+
+      /* Escala UICN graduada: punto vívido + texto oscuro AA */
+      --color-status-lc: #4caf50;  --color-status-lc-text: #256b29;
+      --color-status-nt: #dfc23a;  --color-status-nt-text: #6f5c0e;
+      --color-status-vu: #ef8b1f;  --color-status-vu-text: #7c450a;
+      --color-status-en: #e05a2b;  --color-status-en-text: #8c2f12;
+      --color-status-cr: #b32626;  --color-status-cr-text: #6e1414;
+
+      /* Geometría */
+      --tg-radio: 12px;
+      --tg-corte: 44px;
+      --tg-gap-lista: 28px;         /* espaciado vertical fijo entre tarjetas */
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: var(--lienzo);
-      color: var(--tinta);
+      background: #f5f5f2;
       font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-      font-weight: 400;
-      padding: clamp(24px, 5vw, 64px) clamp(16px, 4vw, 48px);
+      padding: clamp(24px, 4vw, 56px);
+      color: var(--color-neutral-900);
     }
 
-    .nota-prototipo {
-      max-width: var(--ancho-max);
-      margin: 0 auto clamp(20px, 3vw, 36px);
-      font-size: 0.85rem;
-      color: var(--tinta-3);
-    }
+    .nota { max-width: 1100px; margin: 0 auto 24px; font-size: .85rem; color: var(--color-neutral-400); }
+    .escala { max-width: 1100px; margin: 28px auto 0; display: flex; flex-wrap: wrap; gap: 18px; font-size: .78rem; }
+    .escala span { display: inline-flex; align-items: center; gap: 6px; }
+    .escala i { width: 10px; height: 10px; border-radius: 50%; }
 
-    /* ============================================================
-       FICHA
-       ============================================================ */
-    .ficha {
-      --pad-y: clamp(22px, 3.4vw, 44px);
-
-      position: relative;
-      display: grid;
-      grid-template-columns: minmax(0, 34fr) minmax(0, 66fr);
-      max-width: var(--ancho-max);
+    /* ================================================================
+       COMPONENTE TARJETA (único para todas las secciones)
+       ================================================================ */
+    .par {
+      max-width: 1100px;
       margin: 0 auto;
-      background: var(--papel);
-      border-radius: var(--radio-tarjeta);
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--tg-gap-lista);
+      align-items: stretch;          /* igualdad de altura por fila: CSS puro */
+    }
+
+    .tg {
+      display: grid;
+      grid-template-columns: minmax(0, var(--tg-media, 38fr)) minmax(0, 62fr);
+      background: var(--color-surface);
+      border-radius: var(--tg-radio);
+      overflow: hidden;
+    }
+    .tg--der { grid-template-columns: minmax(0, 62fr) minmax(0, var(--tg-media, 38fr)); }
+    .tg--der .tg-media { order: 2; }
+
+    /* Imagen: proporción fija SIEMPRE + focal point */
+    .tg-media {
+      position: relative;
+      align-self: stretch;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--tg-corte)), 0 100%);
+    }
+    /* Corte en espejo cuando la imagen va a la derecha */
+    .tg--der .tg-media {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - var(--tg-corte)));
+    }
+    .tg-media img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;           /* ancla la proporción del conjunto */
+      object-position: center;       /* focal point por foto si hace falta */
+    }
+
+    .tg-cuerpo {
+      display: flex;
+      flex-direction: column;
+      padding: clamp(18px, 2.4vw, 30px);
+      min-width: 0;
+    }
+
+    .tg-kicker {
+      font-size: .74rem;
+      letter-spacing: .05em;
+      color: var(--color-neutral-400);
+    }
+    .tg-titulo {
+      margin-top: 3px;
+      font-size: 1.22rem;
+      font-weight: 500;              /* peso medio, nunca negro plano */
+      line-height: 1.2;
+      color: var(--color-primary);   /* verde institucional en todas */
+    }
+    .tg-ciencia {
+      margin-top: 2px;
+      font-style: italic;
+      font-size: .78rem;
+      color: var(--color-neutral-400);
+    }
+    .tg-desc {
+      margin-top: 12px;
+      max-width: 36ch;
+      font-size: .92rem;
+      line-height: 1.6;
+      color: var(--color-neutral-600);
+      display: -webkit-box;
+      -webkit-line-clamp: 3;         /* trunca SIEMPRE a 3 líneas, con … */
+      -webkit-box-orient: vertical;
       overflow: hidden;
     }
 
-    /* ---- Media: columna angosta con corte diagonal al pie ---- */
-    .ficha-media {
-      position: relative;
-      min-height: clamp(240px, 30vw, 380px);
-      clip-path: polygon(
-        0 0,
-        100% 0,
-        100% calc(100% - var(--corte)),
-        0 100%
-      );
-    }
-
-    .ficha-media img,
-    .ficha-media model-viewer {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      --poster-color: transparent;
-    }
-
-    .ficha-media model-viewer { display: none; }
-
-    .ficha.media-activa .ficha-media img { visibility: hidden; }
-    .ficha.media-activa .ficha-media model-viewer { display: block; }
-
-    /* ---- Contenido: aire asimétrico, lectura estrecha ---- */
-    .ficha-cuerpo {
-      padding: var(--pad-y);
-      padding-left: calc(var(--pad-y) + 18px);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .ficha-cuerpo header {
-      padding-right: clamp(24px, 8vw, 130px); /* aire a la derecha del título */
-    }
-
-    .ficha-nombre {
-      font-size: clamp(1.25rem, 2.4vw, 1.6rem);
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      line-height: 1.15;
-    }
-
-    .ficha-ciencia {
-      margin-top: 4px;
-      font-style: italic;
-      font-size: 0.8rem;
-      font-weight: 400;
-      color: var(--tinta-3);
-    }
-
-    .ficha-descripcion {
-      margin-top: clamp(14px, 2vw, 22px);
-      max-width: 34ch;              /* 30–35 caracteres por línea */
-      font-size: 0.95rem;
-      line-height: 1.65;
-      color: var(--tinta-2);
-    }
-
-    /* ---- Metadatos: dos juntos a la izquierda, estado suelto a la derecha ---- */
-    .ficha-meta {
-      margin-top: auto;             /* empuja al pie: aire central generoso */
-      padding-top: clamp(14px, 2vw, 20px);
-      border-top: 0.5px solid var(--linea);
+    /* Metadatos anclados al fondo: no flotan según el texto */
+    .tg-meta {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 0.5px solid var(--color-neutral-200);
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      gap: 18px;
+      gap: 14px;
     }
+    .tg-datos { display: flex; gap: clamp(16px, 2.4vw, 34px); }
+    .tg-dato dt {
+      font-size: .66rem; letter-spacing: .06em; text-transform: uppercase;
+      color: var(--color-neutral-400);
+    }
+    .tg-dato dd { margin-top: 2px; font-size: .84rem; color: var(--color-neutral-600); }
 
-    .ficha-datos {
+    /* Estado: color graduado según severidad real */
+    .tg-estado { display: inline-flex; align-items: center; gap: 6px; font-size: .8rem; font-weight: 500; white-space: nowrap; }
+    .tg-estado::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--estado-dot); }
+    .estado-lc { color: var(--color-status-lc-text); --estado-dot: var(--color-status-lc); }
+    .estado-nt { color: var(--color-status-nt-text); --estado-dot: var(--color-status-nt); }
+    .estado-vu { color: var(--color-status-vu-text); --estado-dot: var(--color-status-vu); }
+    .estado-en { color: var(--color-status-en-text); --estado-dot: var(--color-status-en); }
+    .estado-cr { color: var(--color-status-cr-text); --estado-dot: var(--color-status-cr); }
+
+    /* El ÚNICO acento de cada tarjeta */
+    .tg-hora { font-size: .95rem; font-weight: 700; color: var(--color-accent); white-space: nowrap; }
+
+    .tg-pie {
+      margin-top: 12px;
       display: flex;
-      gap: clamp(18px, 3vw, 42px);  /* agrupación desigual, no columnas iguales */
+      justify-content: flex-end;
+      gap: 22px;
     }
-
-    .ficha-dato dt {
-      font-size: 0.68rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--tinta-3);
-      font-weight: 400;
+    .tg-accion {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .84rem; font-weight: 500;
+      color: var(--color-neutral-600); text-decoration: none;
+      transition: gap .2s ease, color .2s ease;
     }
+    .tg-accion:hover, .tg-accion:focus-visible { color: var(--color-neutral-900); gap: 10px; }
+    /* CTA con acento: solo cuando es el elemento destacado de esa tarjeta */
+    .tg-accion--acento { color: var(--color-accent); }
+    .tg-accion--acento:hover { color: var(--color-accent); }
+    .tg-accion svg { width: 13px; height: 13px; stroke: currentColor; stroke-width: 2; fill: none; }
 
-    .ficha-dato dd {
-      margin-top: 2px;
-      font-size: 0.86rem;
-      color: var(--tinta-2);
-      max-width: 22ch;
-    }
-
-    /* ÚNICO uso permitido del acento en toda la tarjeta */
-    .ficha-estado {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--acento);
-      white-space: nowrap;
-    }
-
-    .ficha-estado::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: currentColor;
-    }
-
-    /* ---- Acciones discretas: texto + flecha, sin píldoras ---- */
-    .ficha-acciones {
-      margin-top: clamp(12px, 1.6vw, 16px);
-      display: flex;
-      gap: clamp(18px, 3vw, 36px);
-    }
-
-    .ficha-accion {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.84rem;
-      font-weight: 500;
-      color: var(--tinta-2);
-      text-decoration: none;
-      transition: color 0.2s ease, gap 0.2s ease;
-    }
-
-    .ficha-accion:hover,
-    .ficha-accion:focus-visible {
-      color: var(--tinta);
-      gap: 10px;
-    }
-
-    .ficha-accion svg {
-      width: 13px;
-      height: 13px;
-      stroke: currentColor;
-      stroke-width: 2;
-      fill: none;
-    }
-
-    /* ============================================================
-       MÓVIL: apilado con corte diagonal inferior
-       ============================================================ */
-    @media (max-width: 760px) {
-      .ficha { grid-template-columns: 1fr; }
-      .ficha-media {
-        min-height: 210px;
-        clip-path: polygon(
-          0 0,
-          100% 0,
-          100% calc(100% - var(--corte)),
-          0 100%
-        );
-        margin-bottom: calc(-1 * var(--corte));
-        position: relative;
-        z-index: 1;
-      }
-      .ficha-cuerpo { padding-left: var(--pad-y); padding-top: calc(var(--pad-y) + 26px); }
-      .ficha-meta { flex-wrap: wrap; }
+    /* ================================================================
+       MÓVIL: columna única, borde recto (sin diagonal)
+       ================================================================ */
+    @media (max-width: 720px) {
+      .par { grid-template-columns: 1fr; }
+      .tg, .tg--der { grid-template-columns: 1fr; }
+      .tg--der .tg-media { order: 0; }
+      .tg-media { clip-path: none; }
+      .tg-media img { aspect-ratio: 16 / 10; position: static; }
     }
   </style>
 </head>
 <body>
 
-<p class="nota-prototipo">Prototipo de validación — ficha nueva aplicando sobriedad, asimetría 34/66 y acento único. Solo esta página usa el nuevo sistema; el catálogo aún no ha sido tocado.</p>
+<p class="nota">Validación: mismo sistema de diseño, misma altura, textos de largo distinto. Izquierda Eventos (imagen izq., acento = hora) · Derecha Reptiles (imagen der. con corte en espejo, acento = CTA 3D).</p>
 
-<article class="ficha" id="ficha-demo">
-  <div class="ficha-media">
-    <img src="infraestructura/img/solenodonte.jpg" alt="Solenodonte husmeando el suelo del bosque">
-    <model-viewer src="infraestructura/modelos/solenodonte.glb"
-                  alt="Modelo 3D interactivo de un solenodonte"
-                  ar ar-modes="webxr scene-viewer quick-look"
-                  camera-controls auto-rotate interaction-prompt="auto"
-                  shadow-intensity="1"></model-viewer>
-  </div>
+<div class="par">
 
-  <div class="ficha-cuerpo">
-    <header>
-      <h1 class="ficha-nombre">Solenodonte</h1>
-      <p class="ficha-ciencia">Solenodon paradoxus · endémico de La Española</p>
-    </header>
-
-    <p class="ficha-descripcion">
-      Fósil viviente cuyo linaje sobrevive desde tiempos de los dinosaurios.
-      Es uno de los pocos mamíferos venenosos del mundo: inocula saliva tóxica
-      por un incisivo surcado mientras hurga de noche con su hocico flexible.
-    </p>
-
-    <dl class="ficha-meta">
-      <div class="ficha-datos">
-        <div class="ficha-dato">
-          <dt>Hábitat</dt>
-          <dd>Bosques de La Española</dd>
-        </div>
-        <div class="ficha-dato">
-          <dt>Dieta</dt>
-          <dd>Insectos, lombrices y vertebrados pequeños</dd>
-        </div>
-      </div>
-      <div class="ficha-estado">En peligro</div>
-    </dl>
-
-    <div class="ficha-acciones">
-      <button class="ficha-accion" type="button" id="toggle-3d" aria-pressed="false">
-        <svg viewBox="0 0 24 24"><path d="M12 2 21 7v10l-9 5-9-5V7z M12 12 21 7 M12 12v10 M12 12 3 7"/></svg>
-        <span>Ver en 3D</span>
-      </button>
-      <a class="ficha-accion" href="mamiferos.html">
-        <span>Especie anterior</span>
-        <svg viewBox="0 0 24 24"><path d="M19 12H5 M11 18l-6-6 6-6"/></svg>
-      </a>
+  <!-- ═══ EVENTO ═══ -->
+  <article class="tg">
+    <div class="tg-media">
+      <img src="infraestructura/img/cotorra.jpg" alt="Cotorra frente azul, Eupsittula nana, posada en una rama" style="object-position: 65% 35%;">
     </div>
-  </div>
-</article>
+    <div class="tg-cuerpo">
+      <p class="tg-kicker">Sábado · 05 sep 2026</p>
+      <h3 class="tg-titulo">Fotografía a las Aves Nativas</h3>
+      <p class="tg-desc">Acompaña a nuestros guías al aviario nativo y captura la cotorra frente azul en pleno vuelo durante la hora dorada. Trae cámara y trípode; cupo limitado a 20 personas.</p>
+      <dl class="tg-meta">
+        <div class="tg-datos">
+          <div class="tg-dato"><dt>Punto de encuentro</dt><dd>Aviario nativo</dd></div>
+          <div class="tg-dato"><dt>Cupo</dt><dd>20 personas</dd></div>
+        </div>
+        <span class="tg-hora">5:00 p.m.</span>
+      </dl>
+      <div class="tg-pie">
+        <a class="tg-accion" href="#">Reservar <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </article>
 
-<script>
-  const ficha = document.getElementById("ficha-demo");
-  const boton = document.getElementById("toggle-3d");
-  const visor = ficha.querySelector("model-viewer");
+  <!-- ═══ ESPECIE (Reptiles) ═══ -->
+  <article class="tg tg--der">
+    <div class="tg-media">
+      <img src="infraestructura/img/cocodrilo.jpg" alt="Cocodrilo americano, Crocodylus acutus, semisumergido">
+    </div>
+    <div class="tg-cuerpo">
+      <p class="tg-kicker">Reptil · América</p>
+      <h3 class="tg-titulo">Cocodrilo americano</h3>
+      <p class="tg-ciencia">Crocodylus acutus</p>
+      <p class="tg-desc">Habita esteros y desembocaduras.</p>
+      <dl class="tg-meta">
+        <div class="tg-datos">
+          <div class="tg-dato"><dt>Hábitat</dt><dd>Manglares y esteros</dd></div>
+          <div class="tg-dato"><dt>Dieta</dt><dd>Peces y mamíferos</dd></div>
+        </div>
+        <span class="tg-estado estado-vu">Vulnerable</span>
+      </dl>
+      <div class="tg-pie">
+        <button class="tg-accion tg-accion--acento" type="button">Ver en 3D <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </article>
 
-  boton.addEventListener("click", () => {
-    const activa = ficha.classList.toggle("media-activa");
-    boton.setAttribute("aria-pressed", String(activa));
-    boton.querySelector("span").textContent = activa ? "Ver foto" : "Ver en 3D";
-    if (activa && !visor.getAttribute("src")) {
-      visor.setAttribute("src", visor.dataset.src);
-    }
-  });
-</script>
+</div>
+
+<!-- Escala UICN graduada -->
+<div class="escala">
+  <span><i style="background:var(--color-status-lc)"></i> Preocupación menor</span>
+  <span><i style="background:var(--color-status-nt)"></i> Casi amenazada</span>
+  <span><i style="background:var(--color-status-vu)"></i> Vulnerable</span>
+  <span><i style="background:var(--color-status-en)"></i> En peligro</span>
+  <span><i style="background:var(--color-status-cr)"></i> En peligro crítico</span>
+</div>
 
 </body>
 </html>
