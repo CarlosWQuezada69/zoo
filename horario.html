@@ -1,58 +1,99 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/index.dwt" codeOutsideHTMLIsLocked="false" -->
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<!-- InstanceBeginEditable name="doctitle" -->
-<title>Documento sin título</title>
-<!-- InstanceEndEditable -->
-<link href="oneColLiqCtrHdr.css" rel="stylesheet" type="text/css" />
-<style type="text/css">
-a:link {
-	color: #006699;
-}
-a:visited {
-	color: #FF0000;
-}
-body {
-	background-image: url(mamiferos/4.jpg);
-	background-repeat: repeat;
-}
-</style>
-<!-- InstanceBeginEditable name="head" -->
-<!-- InstanceEndEditable -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horario · ZOODOM</title>
+  <meta name="description" content="Consulta el horario de atención del Parque Zoológico Nacional de la República Dominicana y planifica tu visita.">
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-<div class="container">
-  <div class="header"></div>
-  <div class="content">
-    <table width="896" height="77" border="0" cellpadding="2" cellspacing="0">
-      <tr>
-        <td width="892" id="des"><h3><a href="historia.html">Historia</a> //  <a href="horario.html">Horario</a> //  <a href="tarifas.html">Tarifas</a> //  <a href="eventos.html">Eventos</a></h3></td>
-      </tr>
-    </table>
-    <h1>&nbsp;</h1>
-    <h1><!-- InstanceBeginEditable name="contenido" -->
-      <table width="887" border="2" cellspacing="0" cellpadding="2">
-        
-        <tr>
-          <td width="877"><h6><a href="index.html">Inicio</a> / Horario</h6></td>
-        </tr> <tr>
-          <td><table width="10" border="0" cellspacing="0" cellpadding="2">
-            <tr>
-              <td><img src="horario_03.jpg" width="489" height="171" /></td>
-              <td><img src="05.jpg" width="373" height="179" /></td>
-            </tr>
-          </table></td>
-        </tr>
-    </table>
-      <embed src="AVES EXOTICAS DEL MUNDO en imagenes. Algunos de los pajaros mas bonitos del mundo, recopilacion.mp4" width="874" height="383"></embed>
-    <!-- InstanceEndEditable --></h1>
-    <!-- end .content --></div>
-  <div class="footer">
-    <p>Todo lo Derechos Reservados a Maximo J. Herrera &copy;2016</p>
-    <!-- end .footer --></div>
-  <!-- end .container --></div>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Navegación principal">
+      <a class="brand" href="index.html">ZOO<span>DOM</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        <span class="sr-only">Abrir menú</span>
+      </button>
+      <ul class="nav-links" id="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="mamiferos.html">Mamíferos</a></li>
+        <li><a href="reptiles.html">Reptiles</a></li>
+        <li><a href="aves.html">Aves</a></li>
+        <li><a href="historia.html">Historia</a></li>
+        <li><a href="horario.html" class="active">Horario</a></li>
+        <li><a href="tarifas.html">Tarifas</a></li>
+        <li><a href="eventos.html">Eventos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="page-hero">
+      <div class="container">
+        <h1>Horario de atención</h1>
+        <p>Planifica tu visita al ZOODOM. Consulta nuestros horarios antes de venir.</p>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2 class="section-title">Horarios</h2>
+      <p class="section-intro">Abierto de martes a domingo, incluidos los días feriados.</p>
+      <div class="galeria reveal">
+        <figure>
+          <img src="horario_03.jpg" alt="Horario de atención del zoológico, parte 1">
+          <figcaption>Horario general de visitas</figcaption>
+        </figure>
+        <figure>
+          <img src="05.jpg" alt="Horario de atención del zoológico, parte 2">
+          <figcaption>Información adicional para visitantes</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Aves exóticas del mundo</h2>
+        <p class="section-intro">Una muestra de las especies que habitan nuestro parque.</p>
+        <div class="video-frame reveal">
+          <video controls preload="metadata" src="aves-exoticas.mp4"></video>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="brand">ZOO<span>DOM</span></p>
+        <p>Parque Zoológico Nacional de la República Dominicana, destinado al fomento de la educación, la investigación y la cultura.</p>
+      </div>
+      <div>
+        <h3>Explora</h3>
+        <ul>
+          <li><a href="mamiferos.html">Mamíferos</a></li>
+          <li><a href="reptiles.html">Reptiles</a></li>
+          <li><a href="aves.html">Aves</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Visita</h3>
+        <ul>
+          <li><a href="horario.html">Horario</a></li>
+          <li><a href="tarifas.html">Tarifas</a></li>
+          <li><a href="eventos.html">Eventos</a></li>
+          <li><a href="historia.html">Historia</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Todos los derechos reservados a Máximo J. Herrera ©2016</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
-<!-- InstanceEnd --></html>
+</html>

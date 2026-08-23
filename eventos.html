@@ -1,65 +1,97 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/index.dwt" codeOutsideHTMLIsLocked="false" -->
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<!-- InstanceBeginEditable name="doctitle" -->
-<title>Documento sin título</title>
-<!-- InstanceEndEditable -->
-<link href="oneColLiqCtrHdr.css" rel="stylesheet" type="text/css" />
-<style type="text/css">
-a:link {
-	color: #006699;
-}
-a:visited {
-	color: #FF0000;
-}
-body {
-	background-image: url(mamiferos/4.jpg);
-	background-repeat: repeat;
-}
-</style>
-<!-- InstanceBeginEditable name="head" -->
-<!-- InstanceEndEditable -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos · ZOODOM</title>
+  <meta name="description" content="Eventos y actividades del Parque Zoológico Nacional: sesiones de fotografía de aves nativas y leones.">
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-<div class="container">
-  <div class="header"></div>
-  <div class="content">
-    <table width="896" height="77" border="0" cellpadding="2" cellspacing="0">
-      <tr>
-        <td width="892" id="des"><h3><a href="historia.html">Historia</a> //  <a href="horario.html">Horario</a> //  <a href="tarifas.html">Tarifas</a> //  <a href="eventos.html">Eventos</a></h3></td>
-      </tr>
-    </table>
-    <h1>&nbsp;</h1>
-    <h1><!-- InstanceBeginEditable name="contenido" -->
-      <table width="888" border="2" cellspacing="0" cellpadding="2">
-        
-        <tr>
-          <td><table width="839" border="0" cellspacing="0" cellpadding="10">
-            <tr>
-              <td colspan="2"><h6><a href="index.html">Inicio</a> / Eventos</h6></td>
-              </tr>
-            <tr>
-              <td width="467"><img src="aves/0.jpg" width="467" height="317" /></td>
-              <td width="364"><p id="fechas">01/01/2017</p>
-                <p>fotog<span id="color1">rasfia a las Aves Na</span>tivas</p>
-                <p id="color2">a 5:00 pm</p></td>
-            </tr>
-            <tr>
-              <td><img src="mamiferos/4.jpg" width="459" height="357" /></td>
-              <td><p id="fechas">05/01/2017</p>
-                <p>fotog<span id="color1">rafia a los Leones Sal</span>vajes</p>
-                <p id="color2">a 5:00 pm</p></td>
-            </tr>
-          </table></td>
-        </tr>
-    </table><!-- InstanceEndEditable --></h1>
-    <!-- end .content --></div>
-  <div class="footer">
-    <p>Todo lo Derechos Reservados a Maximo J. Herrera &copy;2016</p>
-    <!-- end .footer --></div>
-  <!-- end .container --></div>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Navegación principal">
+      <a class="brand" href="index.html">ZOO<span>DOM</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        <span class="sr-only">Abrir menú</span>
+      </button>
+      <ul class="nav-links" id="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="mamiferos.html">Mamíferos</a></li>
+        <li><a href="reptiles.html">Reptiles</a></li>
+        <li><a href="aves.html">Aves</a></li>
+        <li><a href="historia.html">Historia</a></li>
+        <li><a href="horario.html">Horario</a></li>
+        <li><a href="tarifas.html">Tarifas</a></li>
+        <li><a href="eventos.html" class="active">Eventos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="page-hero">
+      <div class="container">
+        <h1>Eventos</h1>
+        <p>Actividades especiales para vivir el zoológico de una forma distinta.</p>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2 class="section-title">Próximos eventos</h2>
+      <p class="section-intro">Reserva tu lugar y trae tu cámara.</p>
+
+      <article class="event-card reveal">
+        <img src="aves/0.jpg" alt="Aves nativas del zoológico">
+        <div class="event-body">
+          <span class="event-date">01/01/2017</span>
+          <h2>Fotografía a las Aves Nativas</h2>
+          <p class="event-hora">Sesión de fotografía a las <strong>5:00 p.m.</strong></p>
+        </div>
+      </article>
+
+      <article class="event-card reveal">
+        <img src="mamiferos/4.jpg" alt="Leones del zoológico">
+        <div class="event-body">
+          <span class="event-date">05/01/2017</span>
+          <h2>Fotografía a los Leones Salvajes</h2>
+          <p class="event-hora">Sesión de fotografía a las <strong>5:00 p.m.</strong></p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="brand">ZOO<span>DOM</span></p>
+        <p>Parque Zoológico Nacional de la República Dominicana, destinado al fomento de la educación, la investigación y la cultura.</p>
+      </div>
+      <div>
+        <h3>Explora</h3>
+        <ul>
+          <li><a href="mamiferos.html">Mamíferos</a></li>
+          <li><a href="reptiles.html">Reptiles</a></li>
+          <li><a href="aves.html">Aves</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Visita</h3>
+        <ul>
+          <li><a href="horario.html">Horario</a></li>
+          <li><a href="tarifas.html">Tarifas</a></li>
+          <li><a href="eventos.html">Eventos</a></li>
+          <li><a href="historia.html">Historia</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Todos los derechos reservados a Máximo J. Herrera ©2016</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
-<!-- InstanceEnd --></html>
+</html>
