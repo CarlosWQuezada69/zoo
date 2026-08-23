@@ -19,6 +19,7 @@
   <meta name="twitter:description" content="Consulta las tarifas de entrada al Parque Zoológico Nacional de la República Dominicana.">
   <meta name="twitter:image" content="https://carloswquezada69.github.io/zoo/img/sabana.jpg">
   <link rel="stylesheet" href="presentacion/css/styles.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -71,7 +72,24 @@
       <p class="nota-fuente">Tarifas oficiales publicadas por el Parque Zoológico Nacional. Sujetas a cambios.</p>
 
       <p class="volver"><a class="btn btn-primary" href="horario.html">Ver horarios</a></p>
+    </section>    <section class="section section-alt">
+      <div class="container mini-3d reveal">
+        <div>
+          <h2 class="section-title">Un tigre que no sale en la boleta</h2>
+          <p>Explorar el ZOODOM en 3D es gratis, igual que soñar con tu próxima visita. Gira a nuestro tigre de Bengala y llévalo contigo en realidad aumentada.</p>
+          <a class="btn btn-primary" href="mamiferos.html">Conocer más mamíferos</a>
+        </div>
+        <div class="modelo-frame">
+          <model-viewer src="infraestructura/modelos/tigre.glb" alt="Modelo 3D interactivo de el tigre" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1"></model-viewer>
+          <div class="modelo-pie">
+            <h3>el tigre</h3>
+            <p>El felino más grande del planeta</p>
+          </div>
+        </div>
+      </div>
+      <p class="creditos-modelo container">Modelo "Tiger" por Poly by Google (CC-BY 3.0) · vía Poly Pizza</p>
     </section>
+
   </main>
 
   <footer class="site-footer">

@@ -1,0 +1,13 @@
+
+
+Modelos 3D:
+- chimpance.glb: "Ape" por Poly by Google (CC-BY 3.0), via Poly Pizza
+- lechuza.glb: "Owl" por Poly by Google (CC-BY 3.0), via Poly Pizza
+- leon.glb: "Lion" por Poly by Google (CC-BY 3.0), via Poly Pizza
+- tigre.glb: "Tiger" por Poly by Google (CC-BY 3.0), via Poly Pizza
+- cocodrilo.glb: "Crocodile" por jeremy (CC-BY 3.0), via Poly Pizza
+- piton-indio.glb: "Snake" por Quaternius (CC0 1.0), via Poly Pizza
+- pelicano.glb: "Brown pelican" por Poly by Google (CC-BY 3.0), via Poly Pizza
+- vaca.glb: "Cow" por Quaternius (CC0 1.0), via Poly Pizza
+- perro.glb: "Dog" por Quaternius (CC0 1.0), via Poly Pizza
+- piton-real.glb: "Cobra" por Poly by Google (CC-BY 3.0), via Poly Pizza

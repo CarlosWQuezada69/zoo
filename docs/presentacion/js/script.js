@@ -26,12 +26,13 @@ if (header) {
 }
 
 document.querySelectorAll("model-viewer").forEach((visor) => {
+  const contenedor = visor.closest(".card-media") || visor.parentElement;
   const avisar = (texto) => {
-    if (visor.parentElement.querySelector(".aviso-3d")) return;
+    if (contenedor.querySelector(".aviso-3d")) return;
     const p = document.createElement("p");
     p.className = "aviso-3d";
     p.textContent = texto;
-    visor.after(p);
+    contenedor.appendChild(p);
   };
 
   if (location.protocol === "file:") {
@@ -45,6 +46,20 @@ document.querySelectorAll("model-viewer").forEach((visor) => {
       avisar("No se pudo cargar el modelo 3D. Actualiza tu navegador o prueba en otro (Chrome, Edge o Firefox al día).");
     });
   }
+});
+
+document.querySelectorAll(".btn-3d").forEach((boton) => {
+  boton.addEventListener("click", () => {
+    const medio = boton.closest(".card-media");
+    const visor = medio.querySelector("model-viewer");
+    if (!visor) return;
+    const activo = medio.classList.toggle("media-3d");
+    boton.setAttribute("aria-pressed", String(activo));
+    boton.textContent = activo ? "Ver foto" : "Ver en 3D";
+    if (activo && !visor.getAttribute("src")) {
+      visor.setAttribute("src", visor.dataset.src);
+    }
+  });
 });
 
 const revelables = document.querySelectorAll(".reveal");

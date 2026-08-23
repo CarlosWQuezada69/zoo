@@ -19,6 +19,7 @@
   <meta name="twitter:description" content="Consulta el horario de atención del Parque Zoológico Nacional de la República Dominicana y planifica tu visita.">
   <meta name="twitter:image" content="https://carloswquezada69.github.io/zoo/img/sabana.jpg">
   <link rel="stylesheet" href="presentacion/css/styles.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -89,7 +90,24 @@
         </div>
         <p class="volver"><a class="btn btn-primary" href="tarifas.html">Ver tarifas</a></p>
       </div>
+    </section>    <section class="section section-alt">
+      <div class="container mini-3d reveal">
+        <div>
+          <h2 class="section-title">Tu visita, en otro plano</h2>
+          <p>Planifica tu horario y adelántate al paseo: nuestro loro te espera girando en pantalla hasta que llegues al parque en persona.</p>
+          <a class="btn btn-primary" href="aves.html">Ver todas las aves</a>
+        </div>
+        <div class="modelo-frame">
+          <model-viewer src="infraestructura/modelos/loro.glb" alt="Modelo 3D interactivo de el loro" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1"></model-viewer>
+          <div class="modelo-pie">
+            <h3>el loro</h3>
+            <p>Animado y listo para volar contigo</p>
+          </div>
+        </div>
+      </div>
+      <p class="creditos-modelo container">Modelo "Parrot" por mirada.com · vía three.js</p>
     </section>
+
   </main>
 
   <footer class="site-footer">

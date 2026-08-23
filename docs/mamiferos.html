@@ -18,7 +18,8 @@
   <meta name="twitter:title" content="Mamíferos · ZOODOM">
   <meta name="twitter:description" content="Conoce los mamíferos del Parque Zoológico Nacional: chimpancés, leones africanos y tigres de Bengala.">
   <meta name="twitter:image" content="https://carloswquezada69.github.io/zoo/img/sabana.jpg">
-  <link rel="stylesheet" href="presentacion/css/styles.css">
+    <link rel="stylesheet" href="presentacion/css/styles.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
   <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
 </head>
 <body>
@@ -55,7 +56,11 @@
     <section class="section container">
       <div class="animal-list">
         <article class="animal-card reveal">
-          <img src="infraestructura/img/chimpance.jpg" alt="Retrato de un chimpancé adulto entre la vegetación" loading="lazy" decoding="async">
+          <div class="card-media">
+            <img src="infraestructura/img/chimpance.jpg" alt="Retrato de un chimpancé adulto entre la vegetación" loading="lazy" decoding="async">
+            <model-viewer data-src="infraestructura/modelos/chimpance.glb" alt="Modelo 3D interactivo de un chimpancé" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1"></model-viewer>
+            <button class="btn-3d" type="button" aria-pressed="false">Ver en 3D</button>
+          </div>
           <div class="animal-body">
             <p class="sci-name">Pan troglodytes</p>
             <h2>Chimpancé</h2>
@@ -65,7 +70,11 @@
         </article>
 
         <article class="animal-card reverse reveal">
-          <img src="infraestructura/img/leon.jpg" alt="León africano adulto descansando en la sabana" loading="lazy" decoding="async">
+          <div class="card-media">
+            <img src="infraestructura/img/leon.jpg" alt="León africano adulto descansando en la sabana" loading="lazy" decoding="async">
+            <model-viewer data-src="infraestructura/modelos/leon.glb" alt="Modelo 3D interactivo de un león africano" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1"></model-viewer>
+            <button class="btn-3d" type="button" aria-pressed="false">Ver en 3D</button>
+          </div>
           <div class="animal-body">
             <p class="sci-name">Panthera leo</p>
             <h2>León Africano</h2>
@@ -75,12 +84,30 @@
         </article>
 
         <article class="animal-card reveal">
-          <img src="infraestructura/img/tigre.jpg" alt="Tigre de Bengala caminando entre la hierba alta" loading="lazy" decoding="async">
+          <div class="card-media">
+            <img src="infraestructura/img/tigre.jpg" alt="Tigre de Bengala caminando entre la hierba alta" loading="lazy" decoding="async">
+            <model-viewer data-src="infraestructura/modelos/tigre.glb" alt="Modelo 3D interactivo de un tigre de Bengala" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1"></model-viewer>
+            <button class="btn-3d" type="button" aria-pressed="false">Ver en 3D</button>
+          </div>
           <div class="animal-body">
             <p class="sci-name">Panthera tigris tigris</p>
             <h2>Tigre de Bengala</h2>
             <p>El felino más grande del planeta patrulla el norte y centro de la India; cada ejemplar luce un patrón único de rayas, tan distintivo como una huella digital. La subespecie siberiana (<em>P.&nbsp;t.&nbsp;altaica</em>) prefiere, en cambio, los fríos bosques de Manchuria y Siberia.</p>
             <ul class="card-datos"><li><span>Hábitat</span>Selvas y manglares de Asia</li><li><span>Dieta</span>Ciervos y jabalíes</li><li><span>Conservación</span>En peligro</li></ul>
+          </div>
+        </article>
+
+        <article class="animal-card reverse reveal">
+          <div class="card-media">
+            <img src="infraestructura/img/zorro.jpg" alt="Zorro rojo atento en un claro del bosque" loading="lazy" decoding="async">
+            <model-viewer data-src="infraestructura/modelos/zorro.glb" alt="Modelo 3D interactivo de un zorro" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1"></model-viewer>
+            <button class="btn-3d" type="button" aria-pressed="false">Ver en 3D</button>
+          </div>
+          <div class="animal-body">
+            <p class="sci-name">Vulpes vulpes</p>
+            <h2>Zorro Rojo</h2>
+            <p>Nuestro residente más curioso: un cánido de oído fino y cola espesa capaz de adaptarse a bosques, praderas e incluso ciudades. Cazador nocturno e ingenioso, usa su agudo oído para localizar roedores bajo la nieve o la hojarasca.</p>
+            <ul class="card-datos"><li><span>Hábitat</span>Bosques, praderas y ciudades</li><li><span>Dieta</span>Roedores, aves y frutos</li><li><span>Conservación</span>Preocupación menor</li></ul>
           </div>
         </article>
       </div>
@@ -93,22 +120,9 @@
         </div>
       </div>
 
-      <p class="volver"><a class="btn btn-primary" href="index.html">Volver al inicio</a></p>
-    </section>
+      <p class="creditos-modelo">Modelos 3D: "Ape", "Lion" y "Tiger" por Poly by Google y "Fox" por Khronos (CC0) · vía Poly Pizza</p>
 
-    <section class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">Explora en 3D</h2>
-        <p class="section-intro">Gira el modelo con el dedo o el mouse. En tu celular, tócalo para colocarlo en tu espacio con realidad aumentada.</p>
-        <div class="modelo-frame reveal">
-          <model-viewer src="infraestructura/modelos/zorro.glb" alt="Modelo 3D interactivo de un zorro" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1" loading="lazy"></model-viewer>
-          <div class="modelo-pie">
-            <h3>Zorro</h3>
-            <p>Nuestro nuevo residente más curioso</p>
-          </div>
-        </div>
-        <p class="creditos-modelo">Modelo "Fox" por PixelMannen y tomkranis (CC0) · Khronos glTF Sample Models</p>
-      </div>
+      <p class="volver"><a class="btn btn-primary" href="index.html">Volver al inicio</a></p>
     </section>
   </main>
 

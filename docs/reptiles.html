@@ -18,7 +18,8 @@
   <meta name="twitter:title" content="Reptiles · ZOODOM">
   <meta name="twitter:description" content="Descubre los reptiles del Parque Zoológico Nacional: cocodrilos americanos, pitones indios y pitones reales.">
   <meta name="twitter:image" content="https://carloswquezada69.github.io/zoo/img/sabana.jpg">
-  <link rel="stylesheet" href="presentacion/css/styles.css">
+    <link rel="stylesheet" href="presentacion/css/styles.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -54,7 +55,11 @@
     <section class="section container">
       <div class="animal-list">
         <article class="animal-card reveal">
-          <img src="infraestructura/img/cocodrilo.jpg" alt="Cocodrilo americano asomado sobre el agua" loading="lazy" decoding="async">
+          <div class="card-media">
+            <img src="infraestructura/img/cocodrilo.jpg" alt="Cocodrilo americano asomado sobre el agua" loading="lazy" decoding="async">
+            <model-viewer data-src="infraestructura/modelos/cocodrilo.glb" alt="Modelo 3D interactivo de un cocodrilo" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1"></model-viewer>
+            <button class="btn-3d" type="button" aria-pressed="false">Ver en 3D</button>
+          </div>
           <div class="animal-body">
             <p class="sci-name">Crocodylus acutus</p>
             <h2>Cocodrilo Americano</h2>
@@ -64,7 +69,11 @@
         </article>
 
         <article class="animal-card reverse reveal">
-          <img src="infraestructura/img/piton-indio.jpg" alt="Pitón india con su patrón de rombos pardos y dorados" loading="lazy" decoding="async">
+          <div class="card-media">
+            <img src="infraestructura/img/piton-indio.jpg" alt="Pitón india con su patrón de rombos pardos y dorados" loading="lazy" decoding="async">
+            <model-viewer data-src="infraestructura/modelos/piton-indio.glb" alt="Modelo 3D interactivo de una pitón india" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1"></model-viewer>
+            <button class="btn-3d" type="button" aria-pressed="false">Ver en 3D</button>
+          </div>
           <div class="animal-body">
             <p class="sci-name">Python molurus</p>
             <h2>Pitón India</h2>
@@ -74,7 +83,11 @@
         </article>
 
         <article class="animal-card reveal">
-          <img src="infraestructura/img/piton-real.jpg" alt="Cabeza de una pitón real en primer plano" loading="lazy" decoding="async">
+          <div class="card-media">
+            <img src="infraestructura/img/piton-real.jpg" alt="Cabeza de una pitón real en primer plano" loading="lazy" decoding="async">
+            <model-viewer data-src="infraestructura/modelos/piton-real.glb" alt="Modelo 3D interactivo de una pitón real" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1"></model-viewer>
+            <button class="btn-3d" type="button" aria-pressed="false">Ver en 3D</button>
+          </div>
           <div class="animal-body">
             <p class="sci-name">Python regius</p>
             <h2>Pitón Real</h2>
@@ -91,6 +104,8 @@
           <iframe src="https://www.youtube-nocookie.com/embed/f43fQafiuK8?rel=0" title="Cocodrilo en 4K UHD, material libre de derechos" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
         </div>
       </div>
+
+      <p class="creditos-modelo">Modelos 3D: "Crocodile" por Jeremy y "Snake" por Quaternius (CC0), "Cobra" por Poly by Google · vía Poly Pizza</p>
 
       <p class="volver"><a class="btn btn-primary" href="index.html">Volver al inicio</a></p>
     </section>

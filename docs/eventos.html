@@ -19,6 +19,7 @@
   <meta name="twitter:description" content="Eventos y actividades del Parque Zoológico Nacional: sesiones de fotografía de aves nativas y leones.">
   <meta name="twitter:image" content="https://carloswquezada69.github.io/zoo/img/sabana.jpg">
   <link rel="stylesheet" href="presentacion/css/styles.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -75,7 +76,24 @@
           <p>Retrata a la orgullosa de la sabana durante la hora dorada, en un recorrido guiado por el recinto felino con distancia segura.</p>
         </div>
       </article>
+    </section>    <section class="section section-alt">
+      <div class="container mini-3d reveal">
+        <div>
+          <h2 class="section-title">Practica antes de fotografiar</h2>
+          <p>¿Te apuntas a la sesión de fotografía? Estudia cada ángulo del león en este modelo 3D y llega al parque con el encuadre perfecto.</p>
+          <a class="btn btn-primary" href="eventos.html">Ver los eventos</a>
+        </div>
+        <div class="modelo-frame">
+          <model-viewer src="infraestructura/modelos/leon.glb" alt="Modelo 3D interactivo de el león" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1"></model-viewer>
+          <div class="modelo-pie">
+            <h3>el león</h3>
+            <p>La orgullosa de la sabana</p>
+          </div>
+        </div>
+      </div>
+      <p class="creditos-modelo container">Modelo "Lion" por Poly by Google (CC-BY 3.0) · vía Poly Pizza</p>
     </section>
+
   </main>
 
   <footer class="site-footer">

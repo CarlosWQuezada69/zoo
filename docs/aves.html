@@ -18,7 +18,8 @@
   <meta name="twitter:title" content="Aves · ZOODOM">
   <meta name="twitter:description" content="Las aves del Parque Zoológico Nacional: cotorra frente azul, pelícano marrón y lechuza de sabana.">
   <meta name="twitter:image" content="https://carloswquezada69.github.io/zoo/img/sabana.jpg">
-  <link rel="stylesheet" href="presentacion/css/styles.css">
+    <link rel="stylesheet" href="presentacion/css/styles.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
   <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
 </head>
 <body>
@@ -55,7 +56,11 @@
     <section class="section container">
       <div class="animal-list">
         <article class="animal-card reveal">
-          <img src="infraestructura/img/cotorra.jpg" alt="Cotorra frente azul posada sobre una rama" loading="lazy" decoding="async">
+          <div class="card-media">
+            <img src="infraestructura/img/cotorra.jpg" alt="Cotorra frente azul posada sobre una rama" loading="lazy" decoding="async">
+            <model-viewer data-src="infraestructura/modelos/loro.glb" alt="Modelo 3D interactivo de una cotorra" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1"></model-viewer>
+            <button class="btn-3d" type="button" aria-pressed="false">Ver en 3D</button>
+          </div>
           <div class="animal-body">
             <p class="sci-name">Amazona ventralis</p>
             <h2>Cotorra Frente Azul</h2>
@@ -65,7 +70,11 @@
         </article>
 
         <article class="animal-card reverse reveal">
-          <img src="infraestructura/img/pelicano.jpg" alt="Pelícano marrón posado junto al mar" loading="lazy" decoding="async">
+          <div class="card-media">
+            <img src="infraestructura/img/pelicano.jpg" alt="Pelícano marrón posado junto al mar" loading="lazy" decoding="async">
+            <model-viewer data-src="infraestructura/modelos/pelicano.glb" alt="Modelo 3D interactivo de un pelícano marrón" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1"></model-viewer>
+            <button class="btn-3d" type="button" aria-pressed="false">Ver en 3D</button>
+          </div>
           <div class="animal-body">
             <p class="sci-name">Pelecanus occidentalis</p>
             <h2>Pelícano Marrón</h2>
@@ -75,12 +84,30 @@
         </article>
 
         <article class="animal-card reveal">
-          <img src="infraestructura/img/lechuza.jpg" alt="Lechuza de sabana de pie sobre el suelo" loading="lazy" decoding="async">
+          <div class="card-media">
+            <img src="infraestructura/img/lechuza.jpg" alt="Lechuza de sabana de pie sobre el suelo" loading="lazy" decoding="async">
+            <model-viewer data-src="infraestructura/modelos/lechuza.glb" alt="Modelo 3D interactivo de una lechuza" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1"></model-viewer>
+            <button class="btn-3d" type="button" aria-pressed="false">Ver en 3D</button>
+          </div>
           <div class="animal-body">
             <p class="sci-name">Athene cunicularia</p>
             <h2>Lechuza de Sabana</h2>
             <p>Rapaz pequeña y expresiva, distribuida por la región oriental de la isla. Prefiere áreas abiertas —campos de caña, ciénagas y vegas con charcos— donde nidifica en túneles excavados bajo tierra y caza insectos y roedores al crepúsculo.</p>
             <ul class="card-datos"><li><span>Hábitat</span>Campos abiertos del este</li><li><span>Dieta</span>Insectos y roedores</li><li><span>Conservación</span>Preocupación menor</li></ul>
+          </div>
+        </article>
+
+        <article class="animal-card reverse reveal">
+          <div class="card-media">
+            <img src="infraestructura/img/flamenco.jpg" alt="Flamenco del Caribe en aguas poco profundas" loading="lazy" decoding="async">
+            <model-viewer data-src="infraestructura/modelos/flamenco.glb" alt="Modelo 3D interactivo de un flamenco" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1"></model-viewer>
+            <button class="btn-3d" type="button" aria-pressed="false">Ver en 3D</button>
+          </div>
+          <div class="animal-body">
+            <p class="sci-name">Phoenicopterus ruber</p>
+            <h2>Flamenco del Caribe</h2>
+            <p>El ícono rosado de nuestras costas debe su color a los carotenoides de su dieta de crustáceos y algas. Vive en grandes colonias en lagunas salobres, filtra el agua con su peculiar pico invertido y duerme apoyado en una sola pata.</p>
+            <ul class="card-datos"><li><span>Hábitat</span>Lagunas costeras y salinas</li><li><span>Dieta</span>Crustáceos y algas</li><li><span>Conservación</span>Preocupación menor</li></ul>
           </div>
         </article>
       </div>
@@ -93,31 +120,9 @@
         </div>
       </div>
 
-      <p class="volver"><a class="btn btn-primary" href="index.html">Volver al inicio</a></p>
-    </section>
+      <p class="creditos-modelo">Modelos 3D: "Owl" y "Brown pelican" por Poly by Google, "Parrot" por mirada.com (three.js) y "Flamingo" por mirada.com (three.js)</p>
 
-    <section class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">Explora en 3D</h2>
-        <p class="section-intro">Gira los modelos con el dedo o el mouse. En tu celular, tócalos para colocarlos en tu espacio con realidad aumentada.</p>
-        <div class="modelos-grid">
-          <div class="modelo-frame reveal">
-            <model-viewer src="infraestructura/modelos/loro.glb" alt="Modelo 3D interactivo de un loro" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1" loading="lazy"></model-viewer>
-            <div class="modelo-pie">
-              <h3>Loro</h3>
-              <p>Animado y listo para volar contigo</p>
-            </div>
-          </div>
-          <div class="modelo-frame reveal">
-            <model-viewer src="infraestructura/modelos/flamenco.glb" alt="Modelo 3D interactivo de un flamenco" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1" loading="lazy"></model-viewer>
-            <div class="modelo-pie">
-              <h3>Flamenco del Caribe</h3>
-              <p>El ícono de nuestras costas</p>
-            </div>
-          </div>
-        </div>
-        <p class="creditos-modelo">Modelos "Parrot" y "Flamingo" por mirada.com, vía los ejemplos de three.js</p>
-      </div>
+      <p class="volver"><a class="btn btn-primary" href="index.html">Volver al inicio</a></p>
     </section>
   </main>
 

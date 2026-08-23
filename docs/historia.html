@@ -19,6 +19,7 @@
   <meta name="twitter:description" content="La historia del Parque Zoológico Nacional de la República Dominicana (ZOODOM), desde su idea en 1972 hasta su inauguración en 1975.">
   <meta name="twitter:image" content="https://carloswquezada69.github.io/zoo/img/sabana.jpg">
   <link rel="stylesheet" href="presentacion/css/styles.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -60,7 +61,24 @@
       </div>
 
       <p class="volver"><a class="btn btn-primary" href="index.html">Volver al inicio</a></p>
+    </section>    <section class="section section-alt">
+      <div class="container mini-3d reveal">
+        <div>
+          <h2 class="section-title">Un ícono en tres dimensiones</h2>
+          <p>Mientras recorres nuestra historia, conoce al flamenco del Caribe: gíralo con el dedo y, desde tu celular, colócalo en tu propia sala con realidad aumentada.</p>
+          <a class="btn btn-primary" href="aves.html">Conoce a nuestras aves</a>
+        </div>
+        <div class="modelo-frame">
+          <model-viewer src="infraestructura/modelos/flamenco.glb" alt="Modelo 3D interactivo de el flamenco" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1"></model-viewer>
+          <div class="modelo-pie">
+            <h3>el flamenco</h3>
+            <p>El símbolo de nuestras costas</p>
+          </div>
+        </div>
+      </div>
+      <p class="creditos-modelo container">Modelo "Flamingo" por mirada.com · vía three.js</p>
     </section>
+
   </main>
 
   <footer class="site-footer">
