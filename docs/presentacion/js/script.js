@@ -116,3 +116,22 @@ fotosTarjeta.forEach((img) => {
   };
   img.complete ? ajustar() : img.addEventListener("load", ajustar);
 });
+
+
+const NIVELES_CONSERVACION = [
+  [/peligro cr[ií]tico|cr[ií]ticamente amenazad/i, "estado-cr"],
+  [/en peligro/i, "estado-en"],
+  [/vulnerable/i, "estado-vu"],
+  [/casi amenazad/i, "estado-nt"],
+  [/preocupaci[oó]n menor|estable/i, "estado-lc"],
+  [/invasor/i, "estado-inv"],
+  [/insuficient/i, "estado-dd"]
+];
+
+document.querySelectorAll(".card-datos li").forEach((li) => {
+  const etiqueta = li.querySelector("span");
+  if (!etiqueta || !/^conservaci[oó]n$/i.test(etiqueta.textContent.trim())) return;
+  const valor = li.textContent.slice(etiqueta.textContent.length);
+  const nivel = NIVELES_CONSERVACION.find(([re]) => re.test(valor));
+  if (nivel) li.classList.add(nivel[1]);
+});

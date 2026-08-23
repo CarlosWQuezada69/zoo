@@ -1122,3 +1122,56 @@ a {
   object-fit: contain;
   background: linear-gradient(160deg, #0d2412, #1d4023);
 }
+
+/* ===== Identidad por grupo + insignias ===== */
+
+.grupo-mamiferos { --acento: #d97706; }
+.grupo-reptiles { --acento: #65a30d; }
+.grupo-aves { --acento: #0284c7; }
+.grupo-marinos { --acento: #0f766e; }
+
+.animal-card {
+  border-top: 3px solid var(--acento, var(--verde-600));
+}
+
+.animal-body .sci-name {
+  color: var(--acento, var(--verde-700));
+}
+
+.card-datos li span {
+  color: var(--acento, var(--texto-suave));
+}
+
+.card-datos li[class*="estado-"] {
+  --tinte: #f3f3f3;
+  --borde: #aaaaaa;
+  background: var(--tinte);
+}
+
+.card-datos li[class*="estado-"]::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--borde);
+  margin-right: 6px;
+  vertical-align: 1px;
+}
+
+.estado-cr { --tinte: #fdeaea; --borde: #d64545; }
+.estado-en { --tinte: #fdeee0; --borde: #dd7230; }
+.estado-vu { --tinte: #fdf6df; --borde: #cf9c1a; }
+.estado-nt { --tinte: #fbfae4; --borde: #a89f2c; }
+.estado-lc { --tinte: #e9f6ea; --borde: #479452; }
+.estado-inv { --tinte: #f0f0f0; --borde: #808080; }
+.estado-dd { --tinte: #f4f4f4; --borde: #9e9e9e; }
+
+.card-media > img {
+  transition: transform 0.5s ease;
+}
+
+.animal-card:hover .card-media:not(.foto-vertical) > img,
+.animal-card:focus-within .card-media:not(.foto-vertical) > img {
+  transform: scale(1.06);
+}
