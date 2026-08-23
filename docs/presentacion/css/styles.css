@@ -1186,3 +1186,204 @@ html:not(.js) .btn-3d {
   justify-content: space-between;
   gap: 10px;
 }
+
+/* ================================================================
+   REDISEÑO EDITORIAL DE FICHAS — tokens del sistema
+   ================================================================ */
+:root {
+  --acento: #b04327;
+  --tinta: #20231f;
+  --tinta-2: #555b52;
+  --tinta-3: #8d938a;
+  --linea-ficha: rgba(32, 35, 31, 0.16);
+  --corte-ficha: 56px;
+}
+
+/* ---- Asimetría 34/66 + contenedor sobrio ---- */
+.animal-card {
+  grid-template-columns: minmax(0, 34fr) minmax(0, 66fr);
+  border: 1px solid var(--linea-ficha);
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.animal-card .card-media {
+  min-height: clamp(240px, 30vw, 380px);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--corte-ficha)), 0 100%);
+}
+
+/* ---- Tipografía: dos pesos, jerarquía por tamaño y color ---- */
+.animal-body {
+  padding: clamp(22px, 3.4vw, 44px);
+  padding-left: calc(clamp(22px, 3.4vw, 44px) + 18px);
+  gap: 0;
+}
+
+.animal-body h2 {
+  font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: var(--tinta);
+}
+
+.animal-body .sci-name {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--tinta-3);
+}
+
+.animal-body > p:not(.sci-name) {
+  margin-top: clamp(14px, 2vw, 22px);
+  padding-right: clamp(12px, 3vw, 48px);
+  max-width: 34ch;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--tinta-2);
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ---- Metadatos: agrupación desigual, sin cajas ni píldoras ---- */
+.card-datos {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 0.5px solid var(--linea-ficha);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: clamp(18px, 3vw, 44px);
+}
+
+.card-datos li {
+  padding: 0;
+  font-size: 0.86rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--tinta-2);
+  max-width: 24ch;
+}
+
+.card-datos li span {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tinta-3);
+}
+
+/* ÚNICO uso del acento: estado de conservación */
+.card-datos li[class*="estado-"] {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  max-width: none;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--acento);
+}
+
+.card-datos li[class*="estado-"]::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--acento);
+  margin: 0;
+}
+
+.card-datos li[class*="estado-"] span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+/* ---- Acciones discretas: texto + flecha ---- */
+.btn-3d,
+.card-link {
+  padding: 2px 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--tinta-2);
+}
+
+.btn-3d::after {
+  content: "\2192";
+  margin-left: 6px;
+  transition: margin-left 0.2s ease;
+}
+
+.btn-3d:hover,
+.btn-3d:focus-visible {
+  transform: none;
+  color: var(--tinta);
+}
+
+.btn-3d:hover::after {
+  margin-left: 10px;
+}
+
+.btn-3d[aria-pressed="true"],
+.btn-3d[aria-pressed="true"]:hover {
+  background: none;
+  color: var(--acento);
+}
+
+html:not(.js) .btn-3d {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 3;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(16, 29, 13, 0.82);
+  color: #fff;
+}
+
+html:not(.js) .btn-3d::after {
+  content: none;
+}
+
+/* ---- Móvil: apilado con corte inferior ---- */
+@media (max-width: 860px) {
+  .animal-card {
+    grid-template-columns: 1fr;
+  }
+
+  .animal-card .card-media {
+    min-height: 210px;
+    margin-bottom: calc(-1 * var(--corte-ficha));
+    z-index: 1;
+  }
+
+  .animal-body {
+    padding-left: clamp(22px, 3.4vw, 44px);
+    padding-top: calc(clamp(22px, 3.4vw, 44px) + 26px);
+  }
+
+  .animal-body > p:not(.sci-name) {
+    -webkit-line-clamp: 5;
+  }
+}
+
+/* Un solo acento en todo el sistema: los grupos ya no compiten */
+.grupo-mamiferos,
+.grupo-reptiles,
+.grupo-aves,
+.grupo-marinos {
+  --acento: #b04327;
+}
