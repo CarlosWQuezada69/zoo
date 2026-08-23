@@ -103,7 +103,7 @@ if (tarjetas.length > 0) {
 }
 
 
-const fotosTarjeta = document.querySelectorAll(".card-media > img");
+const fotosTarjeta = document.querySelectorAll(".card-media > img, .event-card > img");
 
 fotosTarjeta.forEach((img) => {
   const ajustar = () => {

@@ -503,6 +503,7 @@ a {
 /* ===== Eventos ===== */
 
 .event-card {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(260px, 420px) 1fr;
   gap: 0;
@@ -924,9 +925,6 @@ a {
   aspect-ratio: 16 / 10;
 }
 
-.event-card img {
-  aspect-ratio: 16 / 9;
-}
 
 /* ===== Escenario de selva para el modo 3D ===== */
 
@@ -1118,4 +1116,9 @@ a {
   position: relative;
   z-index: 1;
   object-fit: contain;
+}
+
+.event-card.foto-vertical > img {
+  object-fit: contain;
+  background: linear-gradient(160deg, #0d2412, #1d4023);
 }
