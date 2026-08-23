@@ -1008,8 +1008,6 @@ a {
 }
 
 .btn-3d {
-  align-self: flex-start;
-  margin-top: auto;
   padding: 7px 14px;
   border: 1.5px solid currentColor;
   border-radius: 999px;
@@ -1177,4 +1175,13 @@ html:not(.js) .btn-3d {
 .animal-card:hover .card-media:not(.foto-vertical) > img,
 .animal-card:focus-within .card-media:not(.foto-vertical) > img {
   transform: scale(1.06);
+}
+
+/* Fila de acciones: leer mas a la izquierda, ver en 3D a la derecha */
+.card-actions {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }

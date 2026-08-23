@@ -50,10 +50,16 @@ document.querySelectorAll("model-viewer").forEach((visor) => {
 });
 
 
-const botones3d = document.querySelectorAll(".animal-card .btn-3d, .cards .card .btn-3d");
-botones3d.forEach((boton) => {
-  const cuerpo = boton.closest("article")?.querySelector(".card-body, .animal-body");
-  if (cuerpo) cuerpo.appendChild(boton);
+document.querySelectorAll(".animal-card, .cards .card").forEach((articulo) => {
+  const cuerpo = articulo.querySelector(".card-body, .animal-body");
+  if (!cuerpo || cuerpo.querySelector(".card-actions")) return;
+  const fila = document.createElement("div");
+  fila.className = "card-actions";
+  const enlace = cuerpo.querySelector(".card-link");
+  if (enlace) fila.appendChild(enlace);
+  const boton = articulo.querySelector(".btn-3d");
+  if (boton) fila.appendChild(boton);
+  cuerpo.appendChild(fila);
 });
 
 document.querySelectorAll(".btn-3d").forEach((boton) => {
