@@ -442,17 +442,22 @@ a {
 .video-frame {
   max-width: 900px;
   margin-inline: auto;
-  aspect-ratio: 16 / 9;
   border-radius: var(--radio);
   overflow: hidden;
   box-shadow: var(--sombra-fuerte);
   background: #000;
 }
 
-.video-frame video {
+.video-embed {
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.video-embed iframe {
   width: 100%;
   height: 100%;
   display: block;
+  border: 0;
 }
 
 .galeria {
@@ -538,6 +543,95 @@ a {
   color: var(--ambar);
 }
 
+/* ===== Tablas de información ===== */
+
+.tabla-wrap {
+  max-width: 760px;
+  margin-inline: auto;
+  background: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  overflow-x: auto;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.tabla th,
+.tabla td {
+  padding: 16px 24px;
+}
+
+.tabla thead th {
+  background: var(--verde-800);
+  color: var(--blanco);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tabla tbody tr:nth-child(even) {
+  background: #faf8f0;
+}
+
+.tabla tbody tr {
+  transition: background 0.2s ease;
+}
+
+.tabla tbody tr:hover {
+  background: #f1eedd;
+}
+
+.precio {
+  font-weight: 800;
+  color: var(--verde-700);
+  white-space: nowrap;
+}
+
+.nota-fuente {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+/* ===== Tarjetas de datos ===== */
+
+.datos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.dato-card {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radio);
+  padding: 30px 24px;
+  text-align: center;
+}
+
+.dato-card h3 {
+  color: var(--ambar);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.dato-card a {
+  color: var(--blanco);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.dato-card a:hover {
+  color: var(--ambar);
+}
+
 /* ===== Artículo de texto ===== */
 
 .prose {
@@ -572,6 +666,12 @@ a {
   font-size: 1.6rem;
   display: inline-block;
   margin-bottom: 10px;
+}
+
+.footer-datos {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .footer-grid h3 {

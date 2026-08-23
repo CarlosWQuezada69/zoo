@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://carloswquezada69.github.io/zoo/sitemap.xml
