@@ -409,7 +409,7 @@ a {
 }
 
 .animal-card .card-media {
-  height: 230px;
+  min-height: 230px;
 }
 
 .animal-card .card-media > img {
@@ -859,13 +859,8 @@ a {
     order: 0;
   }
 
-  .animal-card .card-media {
-    height: 200px;
-  }
-
   .animal-card .card-media > img {
-    height: 100%;
-    max-height: none;
+    max-height: 230px;
   }
 
   .event-card {
