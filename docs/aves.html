@@ -128,7 +128,8 @@
         <article class="animal-card reverse reveal">
           <div class="card-media">
             <img src="infraestructura/img/perico.jpg" alt="Perico de la Hispaniola posado en una rama" loading="lazy" decoding="async">
-          </div>
+            <model-viewer data-src="infraestructura/modelos/perico.glb" alt="Modelo 3D interactivo de un perico de la Hispaniola" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate interaction-prompt="auto" shadow-intensity="1"></model-viewer>
+            <button class="btn-3d" type="button" aria-pressed="false">Ver en 3D</button>          </div>
           <div class="animal-body">
             <p class="sci-name">Psittacara chloropterus</p>
             <h2>Perico de la Hispaniola</h2>
@@ -156,11 +157,12 @@
       <p class="section-intro">Loros tropicales en 4K con sonidos de la naturaleza, sin copyright.</p>
       <div class="video-frame reveal">
         <div class="video-embed">
-          <iframe src="https://www.youtube-nocookie.com/embed/m3-lHec4C3g?rel=0" title="Los loros más bellos del mundo en 4K, video sin copyright" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+          <iframe src="https://www.youtube-nocookie.com/embed/m3-lHec4C3g?rel=0" title="Los loros más bellos del mundo en 4K, video sin copyright" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </div>
       </div>
+      <p class="video-fallback">¿No ves el video? <a href="https://www.youtube.com/watch?v=m3-lHec4C3g" target="_blank" rel="noopener">Ábrelo directamente en YouTube</a></p>
 
-      <p class="creditos-modelo">Modelos 3D: "Owl", "Brown pelican" y "Crow" por Poly by Google, "Parrot" y "Flamingo" por mirada.com (three.js)</p>
+      <p class="creditos-modelo">Modelos 3D: "Owl", "Brown pelican" y "Crow" por Poly by Google, "Parrot" por Jeremy (CC-BY), "Parrot" y "Flamingo" por mirada.com (three.js)</p>
 
       <p class="volver"><a class="btn btn-primary" href="index.html">Volver al inicio</a></p>
     </section>

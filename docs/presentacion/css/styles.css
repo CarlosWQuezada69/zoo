@@ -1053,3 +1053,14 @@ a {
     gap: 26px;
   }
 }
+
+.video-fallback {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+  color: #6b7268;
+}
+
+.video-fallback a {
+  font-weight: 600;
+}

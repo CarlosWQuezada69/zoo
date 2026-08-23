@@ -29,3 +29,14 @@ jirafa.glb: "Giraffe" por Poly by Google (CC-BY 3.0)
 - langosta-espinosa.glb: "Lobster" por Poly by Google (CC-BY 3.0), via Poly Pizza
 - pulpo.glb: "Octopus" por Poly by Google (CC-BY 3.0), via Poly Pizza
 - raya.glb: "Manta ray" por Quaternius (CC0 1.0), via Poly Pizza
+- perico.glb: "Parrot" por jeremy (CC-BY 3.0), via Poly Pizza
+- iguana-rinoceronte.glb: "Lizard" por madtrollstudio (CC-BY 3.0), via Poly Pizza
+- boa.glb: "Snake" por Alex Safayan (CC-BY 3.0), via Poly Pizza
+- jaragua-sphaero.glb: "Gecko" por jeremy (CC-BY 3.0), via Poly Pizza
+- tiburon-nodriza.glb: "Shark" por Quaternius (CC0 1.0), via Poly Pizza
+- morena-verde.glb: "Eel" por Poly by Google (CC-BY 3.0), via Poly Pizza
+- colossoma.glb: "Piranha" por Quaternius (CC0 1.0), via Poly Pizza
+- pez-cofre.glb: "Cowfish" por Quaternius (CC0 1.0), via Poly Pizza
+- pez-unicornio.glb: "Blue Tang" por Quaternius (CC0 1.0), via Poly Pizza
+- jutia.glb: "Hamster" por Poly by Google (CC-BY 3.0), via Poly Pizza
+- solenodonte.glb: "Desert shrew" por Poly by Google (CC-BY 3.0), via Poly Pizza
