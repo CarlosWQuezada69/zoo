@@ -453,7 +453,11 @@ a {
 
 .volver {
   margin-top: 36px;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
 }
 
 /* ===== Multimedia ===== */
@@ -1097,9 +1101,7 @@ html:not(.js) .btn-3d {
   color: var(--verde-700);
 }
 
-.volver .btn + .btn {
-  margin-left: 10px;
-}
+
 
 .card-media.foto-vertical {
   background-size: cover;
@@ -1626,7 +1628,7 @@ html:not(.js) .btn-3d::after { content: none; }
 
 .tg-hora { font-size: 0.95rem; font-weight: 700; color: var(--color-accent); white-space: nowrap; }
 
-.tg-pie { margin-top: 12px; display: flex; justify-content: flex-end; gap: 22px; }
+.tg-pie { margin-top: 14px; display: flex; justify-content: center; gap: 22px; }
 .tg-accion {
   display: inline-flex; align-items: center; gap: 6px;
   font-size: 0.84rem; font-weight: 500;
