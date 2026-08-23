@@ -1,3 +1,4 @@
+document.documentElement.classList.add("js");
 const toggle = document.querySelector(".nav-toggle");
 const menu = document.getElementById("menu");
 
@@ -80,4 +81,23 @@ if ("IntersectionObserver" in window && revelables.length > 0) {
   revelables.forEach((el) => observador.observe(el));
 } else {
   revelables.forEach((el) => el.classList.add("visible"));
+}
+
+
+const tarjetas = Array.from(document.querySelectorAll(".animal-card"));
+
+function igualaTarjetas() {
+  tarjetas.forEach((t) => (t.style.minHeight = ""));
+  if (tarjetas.length === 0) return;
+  const alto = Math.max(...tarjetas.map((t) => t.offsetHeight));
+  tarjetas.forEach((t) => (t.style.minHeight = Math.ceil(alto) + "px"));
+}
+
+if (tarjetas.length > 0) {
+  window.addEventListener("load", igualaTarjetas);
+  let temporizador;
+  window.addEventListener("resize", () => {
+    clearTimeout(temporizador);
+    temporizador = setTimeout(igualaTarjetas, 120);
+  });
 }

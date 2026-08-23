@@ -409,7 +409,7 @@ a {
 }
 
 .animal-card .card-media {
-  min-height: 230px;
+  height: 230px;
 }
 
 .animal-card .card-media > img {
@@ -784,7 +784,7 @@ a {
 
 /* ===== Animación al hacer scroll ===== */
 
-.reveal {
+.js .reveal {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.7s ease, transform 0.7s ease;
@@ -800,7 +800,7 @@ a {
     scroll-behavior: auto;
   }
 
-  .reveal {
+  .js .reveal {
     opacity: 1;
     transform: none;
     transition: none;
@@ -859,8 +859,13 @@ a {
     order: 0;
   }
 
+  .animal-card .card-media {
+    height: 200px;
+  }
+
   .animal-card .card-media > img {
-    max-height: 230px;
+    height: 100%;
+    max-height: none;
   }
 
   .event-card {
